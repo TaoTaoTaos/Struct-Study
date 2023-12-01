@@ -95,6 +95,7 @@ void FindPreAndNext(ThreadTree tree, char x)
             { // 如果右指针是线索，那么它就是后继
                 next = tree->rchild;
             }
+            
         }
         while (tree->rtag == 1 && tree->rchild != NULL)
         { // 如果右指针是线索，一直访问下去
