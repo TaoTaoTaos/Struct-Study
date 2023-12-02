@@ -1,5 +1,6 @@
 // 题目要求：实现一个快速排序算法
 // 思路：快速排序是一种分而治之的排序算法，它将一个数组分为两个子数组，然后对这两个子数组进行递归排序。
+//!快速排序是不稳定的
 
 #include <stdio.h>
 
@@ -15,8 +16,10 @@ int Partition(int A[], int low, int high)
         A[low] = A[high]; // 比枢轴小的元素移动到左端
 
         while (low < high && A[low] <= pivot)
+        {
             ++low;        // 如果当前元素小于等于枢轴，low向右移动
         A[high] = A[low]; // 比枢轴大的元素移动到右端
+        }
     }
 
     A[low] = pivot; // 枢轴元素存放到最终位置
@@ -39,7 +42,7 @@ int main()
     int A[] = {3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5};
     int n = sizeof(A) / sizeof(int);
 
-    QuickSort(A, 0, n - 1);
+    QuickSort(A, 0, n - 1);//!一开始low 是 0 high 是n-1
 
     for (int i = 0; i < n; i++)
     {
