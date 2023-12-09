@@ -8,11 +8,14 @@
 #include <stdio.h>
 
 // 顺序查找函数，参数为目标数组和目标值
-int sequentialSearch(int arr[], int len, int target) {
+int sequentialSearch(int arr[], int len, int target)
+{
     // 遍历数组
-    for (int i = 0; i < len; i++) {
+    for (int i = 0; i < len; i++)
+    {
         // 如果找到目标值，返回索引
-        if (arr[i] == target) {
+        if (arr[i] == target)
+        {
             return i;
         }
     }
@@ -20,7 +23,8 @@ int sequentialSearch(int arr[], int len, int target) {
     return -1;
 }
 
-int main() {
+int main()
+{
     // 测试数组
     int arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
     // 数组长度
@@ -32,9 +36,12 @@ int main() {
     int index = sequentialSearch(arr, len, target);
 
     // 打印结果
-    if (index != -1) {
+    if (index != -1)
+    {
         printf("找到目标值%d，索引为%d\n", target, index);
-    } else {
+    }
+    else
+    {
         printf("未找到目标值%d\n", target);
     }
 

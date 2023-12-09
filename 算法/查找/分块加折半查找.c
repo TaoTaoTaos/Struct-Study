@@ -1,7 +1,7 @@
 // 题目要求：使用折半查找来找到目标值所在的块
 
 // 思路：
-// 1. 首先，假设目标数组是有序的（如果不是，需要先进行排序）。
+//!1. 首先，假设目标数组是有序的（如果不是，需要先进行排序）。
 // 2. 然后，将数组分为若干个块，并对每个块的最大值进行索引。
 // 3. 使用折半查找在索引表中找到目标值所在的块。
 // 4. 在找到的块中使用折半查找来查找目标值。
@@ -9,25 +9,30 @@
 #include <stdio.h>
 
 // 折半查找函数，参数为目标数组、数组长度和目标值
-int binarySearch(int arr[], int len, int target) {
+int binarySearch(int arr[], int len, int target)
+{
     // 定义左右边界
     int left = 0, right = len - 1;
 
     // 当左边界小于等于右边界时，继续查找
-    while (left <= right) {
+    while (left <= right)
+    {
         // 计算中间位置
         int mid = left + (right - left) / 2;
 
         // 如果找到目标值，返回索引
-        if (arr[mid] == target) {
+        if (arr[mid] == target)
+        {
             return mid;
         }
         // 如果目标值小于中间元素，查找左半部分
-        else if (arr[mid] > target) {
+        else if (arr[mid] > target)
+        {
             right = mid - 1;
         }
         // 如果目标值大于中间元素，查找右半部分
-        else {
+        else
+        {
             left = mid + 1;
         }
     }
@@ -37,7 +42,8 @@ int binarySearch(int arr[], int len, int target) {
 }
 
 // 分块查找函数，参数为目标数组、数组长度、块大小和目标值
-int blockSearch(int arr[], int len, int blockSize, int target) {
+int blockSearch(int arr[], int len, int blockSize, int target)
+{
     // 计算块的数量
     int blockCount = (len + blockSize - 1) / blockSize;
 
@@ -45,17 +51,21 @@ int blockSearch(int arr[], int len, int blockSize, int target) {
     int indexTable[blockCount];
 
     // 填充索引表
-    for (int i = 0; i < blockCount; i++) {
+    for (int i = 0; i < blockCount; i++)
+    {
         int blockStart = i * blockSize;
         int blockEnd = blockStart + blockSize - 1;
-        if (blockEnd >= len) {
+        if (blockEnd >= len)
+        {
             blockEnd = len - 1;
         }
 
         // 找到块的最大值
         int maxVal = arr[blockStart];
-        for (int j = blockStart + 1; j <= blockEnd; j++) {
-            if (arr[j] > maxVal) {
+        for (int j = blockStart + 1; j <= blockEnd; j++)
+        {
+            if (arr[j] > maxVal)
+            {
                 maxVal = arr[j];
             }
         }
@@ -70,14 +80,16 @@ int blockSearch(int arr[], int len, int blockSize, int target) {
     // 在找到的块中使用折半查找来查找目标值
     int blockStart = blockIndex * blockSize;
     int blockEnd = blockStart + blockSize - 1;
-    if (blockEnd >= len) {
+    if (blockEnd >= len)
+    {
         blockEnd = len - 1;
     }
 
     return binarySearch(arr + blockStart, blockEnd - blockStart + 1, target);
 }
 
-int main() {
+int main()
+{
     // 测试数组
     int arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
     // 数组长度
@@ -91,9 +103,12 @@ int main() {
     int index = blockSearch(arr, len, blockSize, target);
 
     // 打印结果
-    if (index != -1) {
+    if (index != -1)
+    {
         printf("找到目标值%d，索引为%d\n", target, index);
-    } else {
+    }
+    else
+    {
         printf("未找到目标值%d\n", target);
     }
 
