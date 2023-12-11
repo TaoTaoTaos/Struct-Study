@@ -24,7 +24,7 @@ Queue *createQueue(int size)
     queue->tail = -1;
     queue->size = size;
     return queue;
-}
+} 
 
 // 入队操作
 void enqueue(Queue *queue, int x)
@@ -70,7 +70,7 @@ typedef struct
 {
     Queue *queue1;
     Queue *queue2;
-    
+
 } MyStack;
 
 // 初始化栈

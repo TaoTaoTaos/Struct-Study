@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// 邻接表中表对应的链表的顶点
+// 邻接表中表对应的链表的边
 typedef struct ArcNode
 {
     int adjvex;              // 该边所指向的节点的位置

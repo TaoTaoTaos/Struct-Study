@@ -23,7 +23,7 @@ void binaryInsertionSort(int arr[], int n)
             if (arr[mid] > key)
                 high = mid - 1;
             else
-                low = mid + 1;
+                low = mid + 1; //!这一步是与二分查找有区别的地方
         }
         // 将大于key的元素后移
         for (j = i - 1; j >= high + 1; j--)
