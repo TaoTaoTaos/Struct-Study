@@ -54,7 +54,7 @@ int main()
     int count;
     Deletex(L, 1, &count);
 
-    // 打印删除的节点个数
+    // 打印删除的节点数
     printf("Deleted %d nodes.\n", count);
 
     return 0;

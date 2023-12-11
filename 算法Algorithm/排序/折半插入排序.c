@@ -17,7 +17,7 @@ void binaryInsertionSort(int arr[], int n)
         low = 0;
         high = i - 1;
         //! 使用二分查找法找到插入位置
-        while (low <= high)
+        while (low <= high)        //! 直到low > high
         {
             mid = (low + high) / 2;
             if (arr[mid] > key)

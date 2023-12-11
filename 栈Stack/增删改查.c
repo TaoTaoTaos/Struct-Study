@@ -4,50 +4,59 @@
 
 #include <stdio.h>
 
-#define MAX_SIZE 100  // 定义栈的最大长度
+#define MAX_SIZE 100 // 定义栈的最大长度
 
 // 定义栈的数据结构
-typedef struct {
-    int data[MAX_SIZE];  // 存储数据元素
-    int top;  //!   栈顶指针
+typedef struct
+{
+    int data[MAX_SIZE]; // 存储数据元素
+    int top;            //!   栈顶指针
 } Stack;
 
 // 初始化栈
-void InitStack(Stack* S) {
-    S->top = -1;  // 初始化栈顶指针为-1
+void InitStack(Stack *S)
+{
+    S->top = -1; //! 初始化栈顶指针为-1
 }
 
 // 入栈操作
-void Push(Stack* S, int e) {
-    if (S->top == MAX_SIZE - 1) {  // 如果栈已满，无法入栈
+void Push(Stack *S, int e)
+{
+    if (S->top == MAX_SIZE - 1)
+    { // 如果栈已满，无法入栈
         return;
     }
-    S->data[++S->top] = e;  // 将元素e入栈
+    S->data[++S->top] = e; // 将元素e入栈
 }
 
 // 出栈操作
-void Pop(Stack* S) {
-    if (S->top == -1) {  // 如果栈为空，无法出栈
+void Pop(Stack *S)
+{
+    if (S->top == -1)
+    { // 如果栈为空，无法出栈
         return;
     }
-    S->top--;  //! 出栈 
+    S->top--; //! 出栈
 }
 
 // 获取栈顶元素
-int GetTop(Stack* S) {
-    if (S->top != -1) {  // 如果栈不为空
-        return S->data[S->top];  // 返回栈顶元素
+int GetTop(Stack *S)
+{
+    if (S->top != -1)
+    {                           // 如果栈不为空
+        return S->data[S->top]; // 返回栈顶元素
     }
-    return -1;  // 如果栈为空，返回-1
+    return -1; // 如果栈为空，返回-1
 }
 
-int main() {
-    Stack S;  // 创建一个栈
-    InitStack(&S);  // 初始化栈
-    Push(&S, 10);  // 入栈10
-    Push(&S, 20);  // 入栈20
-    Pop(&S);  // 出栈
-    int top = GetTop(&S);  // 获取栈顶元素
+int main()
+{
+    Stack S;              // 创建一个栈
+    InitStack(&S);        // 初始化栈
+    Push(&S, 10);         // 入栈10
+    Push(&S, 20);         // 入栈20
+    Pop(&S);              // 出栈
+    int top = GetTop(&S); // 获取栈顶元素
     printf("The top element is %d\n", top);
     return 0;
 }
