@@ -34,7 +34,7 @@ int main() {
     printf("Number of double branch nodes = %d", doubleBranchCount(root));
     return 0;
 }
-//!关键注释：
+
 
 //Node* newNode(int data): 这个函数用于创建新的节点。它接收一个整数作为参数，然后创建一个新的节点，将这个整数赋值给节点的数据域，然后返回这个新创建的节点的指针。
 //int doubleBranchCount(Node* node): 这个函数用于计算二叉树中双分支节点的个数。它接收一个节点的指针作为参数，然后递归地计算这个节点的左子树和右子树中双分支节点的个数，然后根据这个节点是否是双分支节点来决定是否需要将计数器加一。

@@ -11,7 +11,7 @@
 int *B;
 
 // 作用是 A[low...mid]和A[mid+1...high]各自有序，将两个部分归并
-void Merge(int A[], int low, int mid, int high)//!Merge：我只排有序的
+void Merge(int A[], int low, int mid, int high)//!Merge：我来合并有序的两个人
 
 {
     int i, j, k;
