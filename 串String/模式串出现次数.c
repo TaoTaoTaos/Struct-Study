@@ -18,7 +18,7 @@ int countOccurrences(char *mainStr, char *pattern)
     for (i = 0; mainStr[i] != '\0'; i++)
     { // 遍历主串
         for (j = i, k = 0; pattern[k] != '\0' && mainStr[j] == pattern[k]; j++, k++)
-            ;                            // 检查主串的子串是否与模式串匹配
+                  ;                            // 检查主串的子串是否与模式串匹配
         if (k > 0 && pattern[k] == '\0') // 如果匹配，计数器加一
             count++;
     }
